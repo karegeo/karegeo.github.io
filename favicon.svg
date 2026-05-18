@@ -1,5 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#0b0d12"/>
-  <circle cx="12" cy="13" r="9" fill="#7cf0c2" opacity="0.85"/>
-  <circle cx="20" cy="19" r="9" fill="#8ab4ff" opacity="0.75"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="karegeo">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141826"/>
+      <stop offset="100%" stop-color="#0a0c10"/>
+    </linearGradient>
+    <radialGradient id="g1" cx="35%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#a8f5d4"/>
+      <stop offset="100%" stop-color="#5fc99a"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="35%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#b3c8ff"/>
+      <stop offset="100%" stop-color="#5f86d9"/>
+    </radialGradient>
+    <radialGradient id="g3" cx="35%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#e2c8ff"/>
+      <stop offset="100%" stop-color="#9c7adb"/>
+    </radialGradient>
+    <radialGradient id="g4" cx="35%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#9af5d0"/>
+      <stop offset="100%" stop-color="#5fc99a" stop-opacity="0.55"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+
+  <!-- aggregated cluster: three "tiles" pulled together by the
+       Cheerios effect; also reads as cells in artificial life -->
+  <circle cx="24" cy="28" r="10" fill="url(#g1)"/>
+  <circle cx="40" cy="28" r="10" fill="url(#g2)"/>
+  <circle cx="32" cy="44" r="10" fill="url(#g3)"/>
+
+  <!-- approaching tile drifting toward the cluster -->
+  <circle cx="51" cy="14" r="5" fill="url(#g4)"/>
 </svg>
