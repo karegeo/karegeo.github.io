@@ -4,17 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>3D printing &amp; models — karegeo</title>
-    <meta name="description" content="3D printing notes and printable models by Georgii Karelin: hardware, materials, slicer settings, and the models used in experiments at ECSU, OIST." />
+    <meta name="description" content="A page created by mistake, now collecting random notes on 3D printing, and links to the printable models used in the projects." />
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://karegeo.github.io/3d-printing/" />
     <meta property="og:title" content="3D printing &amp; models — karegeo" />
-    <meta property="og:description" content="3D printing notes and printable models: hardware, materials, slicer settings, and the models used in experiments." />
+    <meta property="og:description" content="A page created by mistake, now collecting random notes on 3D printing." />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="3D printing &amp; models — karegeo" />
-    <meta name="twitter:description" content="3D printing notes and printable models: hardware, materials, slicer settings, and the models used in experiments." />
+    <meta name="twitter:description" content="A page created by mistake, now collecting random notes on 3D printing." />
     <style>
       :root {
         --bg: #0b0d12;
@@ -111,24 +111,20 @@
         margin: 0;
         color: var(--muted);
         font-size: 1.05rem;
-        max-width: 56ch;
+        line-height: 1.6;
+        max-width: 58ch;
       }
-      header p a { color: var(--accent-2); text-decoration: none; }
-      header p a:hover { text-decoration: underline; }
 
       section {
         margin-bottom: 48px;
         animation: fadeUp 0.9s ease-out both;
       }
       section:nth-of-type(1) { animation-delay: 0.15s; }
-      section:nth-of-type(2) { animation-delay: 0.25s; }
-      section:nth-of-type(3) { animation-delay: 0.35s; }
-      section:nth-of-type(4) { animation-delay: 0.45s; }
-      section:nth-of-type(5) { animation-delay: 0.55s; }
+      section:nth-of-type(2) { animation-delay: 0.3s; }
 
       h2 {
-        margin: 0 0 18px;
-        font-size: 1.4rem;
+        margin: 0 0 20px;
+        font-size: 1.3rem;
         letter-spacing: -0.01em;
       }
 
@@ -139,19 +135,49 @@
         line-height: 1.6;
         max-width: 64ch;
       }
-      section > p a { color: var(--accent-2); text-decoration: none; }
-      section > p a:hover { text-decoration: underline; }
 
-      .models {
+      /* Numbered notes */
+      ol.notes {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: note;
+        max-width: 66ch;
+      }
+      ol.notes li {
+        counter-increment: note;
+        position: relative;
+        padding-left: 46px;
+        margin-bottom: 20px;
+        color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.65;
+      }
+      ol.notes li:last-child { margin-bottom: 0; }
+      ol.notes li::before {
+        content: counter(note);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 32px;
+        text-align: right;
+        color: var(--accent);
+        font-variant-numeric: tabular-nums;
+        font-size: 0.9rem;
+        line-height: 1.75;
+      }
+      ol.notes em { color: var(--fg); font-style: normal; }
+
+      .links {
         display: grid;
-        gap: 20px;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       }
 
       .card {
         position: relative;
         display: block;
-        padding: 24px 24px 22px;
+        padding: 20px 22px;
         background: var(--bg-2);
         border: 1px solid rgba(255, 255, 255, 0.06);
         border-radius: 14px;
@@ -161,7 +187,6 @@
         transition: transform 0.25s ease, border-color 0.25s ease,
                     box-shadow 0.25s ease;
       }
-
       .card::after {
         content: "";
         position: absolute;
@@ -172,94 +197,38 @@
         transition: opacity 0.25s ease;
         pointer-events: none;
       }
-
-      a.card:hover {
+      .card:hover {
         transform: translateY(-4px);
         border-color: rgba(124, 240, 194, 0.4);
         box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
       }
-      a.card:hover::after { opacity: 1; }
+      .card:hover::after { opacity: 1; }
 
       .card h3 {
-        margin: 0 0 8px;
-        font-size: 1.15rem;
+        margin: 0 0 6px;
+        font-size: 1.05rem;
         letter-spacing: -0.01em;
       }
       .card p {
         margin: 0;
         color: var(--muted);
-        font-size: 0.95rem;
+        font-size: 0.92rem;
         line-height: 1.5;
       }
       .card .arrow {
         position: absolute;
-        top: 22px;
-        right: 22px;
+        top: 20px;
+        right: 20px;
         color: var(--accent);
         transition: transform 0.25s ease;
       }
-      a.card:hover .arrow { transform: translate(4px, -4px); }
-
-      .tags {
-        margin-top: 14px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .tag {
-        display: inline-block;
-        padding: 3px 9px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 999px;
-        color: var(--muted);
-        font-size: 0.75rem;
-        letter-spacing: 0.02em;
-      }
-
-      .specs {
-        display: grid;
-        gap: 12px 28px;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        margin: 0;
-        padding: 22px 24px;
-        background: var(--bg-2);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 14px;
-      }
-      .specs div {
-        display: flex;
-        justify-content: space-between;
-        gap: 16px;
-        font-size: 0.92rem;
-        line-height: 1.5;
-      }
-      .specs dt {
-        color: var(--muted);
-      }
-      .specs dd {
-        margin: 0;
-        text-align: right;
-        font-variant-numeric: tabular-nums;
-      }
-
-      ul.notes {
-        margin: 0;
-        padding-left: 20px;
-        color: var(--muted);
-        font-size: 0.95rem;
-        line-height: 1.7;
-        max-width: 64ch;
-      }
-      ul.notes li { margin-bottom: 8px; }
-      ul.notes li:last-child { margin-bottom: 0; }
-      ul.notes a { color: var(--accent-2); text-decoration: none; }
-      ul.notes a:hover { text-decoration: underline; }
+      .card:hover .arrow { transform: translate(4px, -4px); }
 
       footer {
         margin-top: 64px;
         color: var(--muted);
         font-size: 0.85rem;
-        animation: fadeUp 0.9s ease-out 0.55s both;
+        animation: fadeUp 0.9s ease-out 0.45s both;
       }
       footer p { margin: 0 0 6px; }
       footer p:last-child { margin-bottom: 0; }
@@ -288,125 +257,91 @@
 
       <header>
         <h1>3D printing &amp; models</h1>
-        <p>A general page about 3D printing and the models I make —
-           the settings I start from, what I have learned at the printer,
-           and the tools I design in. Printing notes specific to one
-           project live with that project; this page collects what
-           carries across all of them.</p>
+        <p>This page was first created by mistake, but maybe it can
+           collect some useful or interesting (hopefully) random
+           notes.</p>
       </header>
 
       <section>
-        <h2>Models</h2>
-        <p>Printable and machinable parts from my projects. Each links to
-           the project that owns it, where the geometry and its
-           project-specific print notes live.</p>
+        <h2>Notes</h2>
 
-        <div class="models">
-          <a class="card" href="https://karegeo.github.io/floatiles/apparatus_3d.html">
-            <span class="arrow" aria-hidden="true">↗</span>
-            <h3>FloaTiles apparatus</h3>
-            <p>The pool, slab and strut frame of the capillary
-               self-assembly rig, as a parametric OpenSCAD model with an
-               STL and an in-browser 3D viewer.</p>
-            <div class="tags">
-              <span class="tag">OpenSCAD</span>
-              <span class="tag">parametric</span>
-              <span class="tag">floatiles</span>
-            </div>
-          </a>
+        <ol class="notes">
+          <li>3D printing has not yet reached its full potential. It went
+              further than 3D TV, perhaps to a similar level as consumer
+              VR, but there might still be many challenges. Hopefully it
+              will be a force for good.</li>
 
-          <a class="card" href="https://karegeo.github.io/floatiles/">
-            <span class="arrow" aria-hidden="true">↗</span>
-            <h3>Hat &amp; Spectre monotiles</h3>
-            <p>Aperiodic monotiles printed as small, flat, buoyant tiles
-               that aggregate on water via the Cheerios effect — roughly
-               1 cm across, in dark filament.</p>
-            <div class="tags">
-              <span class="tag">FDM</span>
-              <span class="tag">floatiles</span>
-            </div>
-          </a>
+          <li>Not everything can be 3D printed.</li>
 
-          <div class="card">
-            <h3>More models coming</h3>
-            <p>Rigs, holders and fixtures from ongoing work will be added
-               here as they are documented and cleaned up for
-               release.</p>
-            <div class="tags">
-              <span class="tag">work in progress</span>
-            </div>
-          </div>
-        </div>
+          <li>But a lot of stuff can be.</li>
+
+          <li>But there are details.</li>
+
+          <li>Read the manual, ask living people, ask an LLM — but a paid
+              one — and describe the problem as much as possible, with
+              pictures.</li>
+
+          <li>There are a lot of things which might go wrong, and a lot
+              which can be slightly improved.</li>
+
+          <li>There are things like elephant foot, or a slightly dirty
+              printing bed, which degrade a print.</li>
+
+          <li><em>Calibrate.</em></li>
+
+          <li><em>Maintain</em> (or ask people for help). It is like that
+              book about motorcycles and Zen.</li>
+
+          <li>The fact that 3D printers operate in the physical world is
+              astonishing. They are basically robots — not motile
+              ones.</li>
+
+          <li>However, it also means it is hard. Connection with the
+              physical world is hard: things can be broken, things break
+              themselves. There is a famous joke about regular 2D
+              printers being the worst pieces of hardware, and it kind of
+              makes sense, because of that same connection.</li>
+
+          <li>There are health risks. Printing things which go into food
+              and drink is probably a bad idea, unless one is absolutely
+              certain.</li>
+
+          <li>There are the elements — UV, sun, salt, water — and a lot
+              of other stuff outdoors and indoors which can create
+              damage.</li>
+
+          <li>Remember about humidity.</li>
+
+          <li>The next big thing might be self-correcting 3D printers,
+              with a camera on the printing head, able to fix things on
+              the go. Whether this already exists is not known here.</li>
+
+          <li>The connection with LLMs also seems interesting, especially
+              because printing gives grounding — a reality check, a way
+              to touch the grass.</li>
+        </ol>
       </section>
 
       <section>
-        <h2>Per-project notes</h2>
-        <p>Printing detail that only makes sense next to one experiment
-           stays with that experiment, beside the geometry it describes.</p>
+        <h2>Models</h2>
+        <p>Printable parts live with the project that uses them, next to
+           the rest of its files.</p>
 
-        <div class="models">
+        <div class="links">
           <a class="card" href="https://karegeo.github.io/floatiles/">
             <span class="arrow" aria-hidden="true">↗</span>
             <h3>FloaTiles</h3>
-            <p>Tiles that have to float, aggregate and stay identical
-               across a batch — the tile geometry, the apparatus model
-               and the printing notes that go with them.</p>
+            <p>Small printed tiles that float on water and clump
+               together.</p>
+          </a>
+
+          <a class="card" href="https://karegeo.github.io/floatiles/apparatus_3d.html">
+            <span class="arrow" aria-hidden="true">↗</span>
+            <h3>FloaTiles apparatus</h3>
+            <p>The rig around the pool, as an OpenSCAD model with an STL
+               and a viewer in the browser.</p>
           </a>
         </div>
-      </section>
-
-      <section>
-        <h2>Print settings</h2>
-        <p>A starting point rather than a rule — the baseline profile I
-           come back to before tuning for a specific part. Anything a
-           model needs beyond this is noted with the model itself.</p>
-
-        <dl class="specs">
-          <div><dt>Process</dt><dd>FDM</dd></div>
-          <div><dt>Material</dt><dd>PLA</dd></div>
-          <div><dt>Nozzle</dt><dd>0.4 mm</dd></div>
-          <div><dt>Layer height</dt><dd>0.2 mm</dd></div>
-          <div><dt>Walls</dt><dd>3 perimeters</dd></div>
-          <div><dt>Infill</dt><dd>20 % gyroid</dd></div>
-          <div><dt>Supports</dt><dd>none, where possible</dd></div>
-          <div><dt>Bed adhesion</dt><dd>brim on thin parts</dd></div>
-        </dl>
-      </section>
-
-      <section>
-        <h2>Notes from the bench</h2>
-        <ul class="notes">
-          <li><strong>Thin, wide parts warp before they fail.</strong>
-              They lift at the corners long before anything else goes
-              wrong; a brim and a slower first layer fix most of it.</li>
-          <li><strong>Surface finish can be the experiment.</strong>
-              When a part has to interact with a fluid or a surface, the
-              top-layer finish and any stringing change the behaviour you
-              are trying to measure, not just how it looks. Print those
-              faces down on a smooth plate.</li>
-          <li><strong>Print a batch in one go.</strong> Parts from
-              different sessions differ enough in mass and edge quality
-              to show up in results — if a set has to be identical, it
-              has to come off the plate together.</li>
-          <li><strong>Measure, don't trust the slicer.</strong> Nominal
-              and printed dimensions drift apart by more than you would
-              like, especially on small parts; calibrate against a
-              printed test piece.</li>
-          <li><strong>Keep the model parametric if you can.</strong>
-              Every experiment eventually needs the same part at a
-              different size, and a script regenerates it where a mesh
-              has to be redrawn.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Software</h2>
-        <p>Models are authored parametrically where the geometry allows
-           it — mostly in <a href="https://openscad.org/">OpenSCAD</a>,
-           so a part can be regenerated at a different size instead of
-           being redrawn — and exported to STL for slicing. Sources live
-           alongside the projects they belong to on
-           <a href="https://github.com/karegeo">GitHub</a>.</p>
       </section>
 
       <footer>
