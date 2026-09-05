@@ -124,6 +124,7 @@
       section:nth-of-type(2) { animation-delay: 0.25s; }
       section:nth-of-type(3) { animation-delay: 0.35s; }
       section:nth-of-type(4) { animation-delay: 0.45s; }
+      section:nth-of-type(5) { animation-delay: 0.55s; }
 
       h2 {
         margin: 0 0 18px;
@@ -287,37 +288,49 @@
 
       <header>
         <h1>3D printing &amp; models</h1>
-        <p>Notes on the printing side of my work at the
-           <a href="https://www.oist.jp/research/research-units/ecsu">Embodied
-           Cognitive Science Unit</a>,
-           <a href="https://www.oist.jp">OIST</a> — the hardware and
-           materials I use, the settings that actually worked, and the
-           models behind the experiments.</p>
+        <p>A general page about 3D printing and the models I make —
+           the settings I start from, what I have learned at the printer,
+           and the tools I design in. Printing notes specific to one
+           project live with that project; this page collects what
+           carries across all of them.</p>
       </header>
 
       <section>
         <h2>Models</h2>
-        <p>Printable parts used in the experiments. Each links to the
-           project or repository it belongs to.</p>
+        <p>Printable and machinable parts from my projects. Each links to
+           the project that owns it, where the geometry and its
+           project-specific print notes live.</p>
 
         <div class="models">
+          <a class="card" href="https://karegeo.github.io/floatiles/apparatus_3d.html">
+            <span class="arrow" aria-hidden="true">↗</span>
+            <h3>FloaTiles apparatus</h3>
+            <p>The pool, slab and strut frame of the capillary
+               self-assembly rig, as a parametric OpenSCAD model with an
+               STL and an in-browser 3D viewer.</p>
+            <div class="tags">
+              <span class="tag">OpenSCAD</span>
+              <span class="tag">parametric</span>
+              <span class="tag">floatiles</span>
+            </div>
+          </a>
+
           <a class="card" href="https://karegeo.github.io/floatiles/">
             <span class="arrow" aria-hidden="true">↗</span>
             <h3>Hat &amp; Spectre monotiles</h3>
-            <p>Aperiodic monotiles printed as flat, buoyant floaters for
-               capillary self-assembly experiments — the tiles used in
-               the floatiles platform.</p>
+            <p>Aperiodic monotiles printed as small, flat, buoyant tiles
+               that aggregate on water via the Cheerios effect — roughly
+               1 cm across, in dark filament.</p>
             <div class="tags">
               <span class="tag">FDM</span>
-              <span class="tag">PLA</span>
               <span class="tag">floatiles</span>
             </div>
           </a>
 
           <div class="card">
             <h3>More models coming</h3>
-            <p>Rigs, holders and fixtures from ongoing experiments will
-               be added here as they are documented and cleaned up for
+            <p>Rigs, holders and fixtures from ongoing work will be added
+               here as they are documented and cleaned up for
                release.</p>
             <div class="tags">
               <span class="tag">work in progress</span>
@@ -327,10 +340,26 @@
       </section>
 
       <section>
+        <h2>Per-project notes</h2>
+        <p>Printing detail that only makes sense next to one experiment
+           stays with that experiment, beside the geometry it describes.</p>
+
+        <div class="models">
+          <a class="card" href="https://karegeo.github.io/floatiles/">
+            <span class="arrow" aria-hidden="true">↗</span>
+            <h3>FloaTiles</h3>
+            <p>Tiles that have to float, aggregate and stay identical
+               across a batch — the tile geometry, the apparatus model
+               and the printing notes that go with them.</p>
+          </a>
+        </div>
+      </section>
+
+      <section>
         <h2>Print settings</h2>
-        <p>A starting point rather than a rule — these are the defaults I
-           come back to for flat, small, dimensionally sensitive parts.
-           Anything unusual is noted with the model itself.</p>
+        <p>A starting point rather than a rule — the baseline profile I
+           come back to before tuning for a specific part. Anything a
+           model needs beyond this is noted with the model itself.</p>
 
         <dl class="specs">
           <div><dt>Process</dt><dd>FDM</dd></div>
@@ -340,38 +369,43 @@
           <div><dt>Walls</dt><dd>3 perimeters</dd></div>
           <div><dt>Infill</dt><dd>20 % gyroid</dd></div>
           <div><dt>Supports</dt><dd>none, where possible</dd></div>
-          <div><dt>Bed adhesion</dt><dd>brim on thin flat parts</dd></div>
+          <div><dt>Bed adhesion</dt><dd>brim on thin parts</dd></div>
         </dl>
       </section>
 
       <section>
         <h2>Notes from the bench</h2>
         <ul class="notes">
-          <li><strong>Flat parts warp before they fail.</strong> Thin,
-              wide tiles lift at the corners long before anything else
-              goes wrong; a brim and a slower first layer fix most of
-              it.</li>
-          <li><strong>Surface finish drives the physics.</strong> For
-              parts that float, the top-layer finish and any stringing
-              change the contact line — and therefore the behaviour you
-              are trying to measure. Print them face down on a smooth
-              plate.</li>
-          <li><strong>Print the whole batch in one go.</strong> Tiles
-              from different sessions differ enough in mass and edge
-              quality to show up in the results.</li>
+          <li><strong>Thin, wide parts warp before they fail.</strong>
+              They lift at the corners long before anything else goes
+              wrong; a brim and a slower first layer fix most of it.</li>
+          <li><strong>Surface finish can be the experiment.</strong>
+              When a part has to interact with a fluid or a surface, the
+              top-layer finish and any stringing change the behaviour you
+              are trying to measure, not just how it looks. Print those
+              faces down on a smooth plate.</li>
+          <li><strong>Print a batch in one go.</strong> Parts from
+              different sessions differ enough in mass and edge quality
+              to show up in results — if a set has to be identical, it
+              has to come off the plate together.</li>
           <li><strong>Measure, don't trust the slicer.</strong> Nominal
-              dimensions and printed dimensions drift apart by more than
-              you would like at this scale; calibrate against a printed
-              test piece.</li>
+              and printed dimensions drift apart by more than you would
+              like, especially on small parts; calibrate against a
+              printed test piece.</li>
+          <li><strong>Keep the model parametric if you can.</strong>
+              Every experiment eventually needs the same part at a
+              different size, and a script regenerates it where a mesh
+              has to be redrawn.</li>
         </ul>
       </section>
 
       <section>
         <h2>Software</h2>
         <p>Models are authored parametrically where the geometry allows
-           it, so a tile family can be regenerated at a different size
-           instead of being redrawn. Sources live alongside the projects
-           they belong to on
+           it — mostly in <a href="https://openscad.org/">OpenSCAD</a>,
+           so a part can be regenerated at a different size instead of
+           being redrawn — and exported to STL for slicing. Sources live
+           alongside the projects they belong to on
            <a href="https://github.com/karegeo">GitHub</a>.</p>
       </section>
 
