@@ -116,20 +116,27 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        padding: 10px 16px;
-        background: var(--bg-2);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 10px;
+        padding: 12px 20px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(124, 240, 194, 0.35);
+        border-radius: 12px;
         color: var(--fg);
-        font-size: 0.95rem;
+        font-size: 1rem;
+        font-weight: 700;
         text-decoration: none;
         transition: transform 0.25s ease, border-color 0.25s ease,
-                    box-shadow 0.25s ease;
+                    box-shadow 0.25s ease, background 0.25s ease;
       }
       .link-btn:hover {
         transform: translateY(-2px);
-        border-color: rgba(124, 240, 194, 0.4);
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(124, 240, 194, 0.8);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      }
+      .link-btn svg {
+        width: 22px;
+        height: 22px;
+        flex: none;
       }
       .link-btn .arrow {
         color: var(--accent);
@@ -240,9 +247,19 @@
         <nav class="links" aria-label="Profiles">
           <!-- TODO: replace with the actual LinkedIn profile URL -->
           <a class="link-btn" href="https://www.linkedin.com/in/">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="1" y="1" width="22" height="22" rx="4" fill="#0a66c2" />
+              <circle cx="7" cy="7" r="1.8" fill="#fff" />
+              <rect x="5.4" y="9.6" width="3.2" height="9" fill="#fff" />
+              <path fill="#fff" d="M10.6 9.6h3v1.4c.6-1 1.7-1.6 3-1.6 2.2 0 3.4 1.4 3.4 4v5.2h-3.2v-4.7c0-1.2-.5-1.9-1.5-1.9s-1.5.7-1.5 1.9v4.7h-3.2z" />
+            </svg>
             LinkedIn <span class="arrow" aria-hidden="true">↗</span>
           </a>
           <a class="link-btn" href="https://scholar.google.com/citations?user=esaiC-4AAAAJ&amp;hl=en">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="15.5" r="7.5" fill="#a0c3ff" />
+              <path fill="#4285f4" d="M12 0 0 10.5h24z" />
+            </svg>
             Google Scholar <span class="arrow" aria-hidden="true">↗</span>
           </a>
         </nav>
