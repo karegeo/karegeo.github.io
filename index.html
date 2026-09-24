@@ -106,6 +106,37 @@
       header p a { color: var(--accent-2); text-decoration: none; }
       header p a:hover { text-decoration: underline; }
 
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+      .link-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        background: var(--bg-2);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 10px;
+        color: var(--fg);
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: transform 0.25s ease, border-color 0.25s ease,
+                    box-shadow 0.25s ease;
+      }
+      .link-btn:hover {
+        transform: translateY(-2px);
+        border-color: rgba(124, 240, 194, 0.4);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      }
+      .link-btn .arrow {
+        color: var(--accent);
+        transition: transform 0.25s ease;
+      }
+      .link-btn:hover .arrow { transform: translate(3px, -3px); }
+
       .projects {
         display: grid;
         gap: 20px;
@@ -206,6 +237,15 @@
            Small experiments in artificial life — from capillary
            self-assembly on the bench to the Fermi paradox in
            simulation.</p>
+        <nav class="links" aria-label="Profiles">
+          <!-- TODO: replace with the actual LinkedIn profile URL -->
+          <a class="link-btn" href="https://www.linkedin.com/in/">
+            LinkedIn <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="link-btn" href="https://scholar.google.com/citations?user=esaiC-4AAAAJ&amp;hl=en">
+            Google Scholar <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+        </nav>
       </header>
 
       <section class="projects">
@@ -236,7 +276,7 @@
       </section>
 
       <footer>
-        <p>Last updated: 2026-09-05</p>
+        <p>Last updated: 2026-09-24</p>
         <p>Source on <a href="https://github.com/karegeo">GitHub</a>.
            Built with the help of
            <a href="https://claude.com/claude-code">Claude Code</a>.</p>
