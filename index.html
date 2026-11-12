@@ -144,6 +144,60 @@
       }
       .link-btn:hover .arrow { transform: translate(3px, -3px); }
 
+      .poster {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+        align-items: center;
+        margin-bottom: 40px;
+        padding: 20px;
+        background: var(--bg-2);
+        border: 1px solid rgba(124, 240, 194, 0.25);
+        border-radius: 14px;
+        animation: fadeUp 0.9s ease-out 0.1s both;
+      }
+      .poster-thumb {
+        display: block;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .poster-thumb:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
+      }
+      .poster-thumb img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .poster .eyebrow {
+        margin: 0 0 6px;
+        color: var(--accent);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .poster h2 {
+        margin: 0 0 8px;
+        font-size: 1.4rem;
+        letter-spacing: -0.01em;
+      }
+      .poster p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      .poster .links { margin-top: 16px; }
+      @media (max-width: 560px) {
+        .poster { grid-template-columns: 1fr; }
+        .poster-thumb { max-width: 240px; }
+      }
+
       .projects {
         display: grid;
         gap: 20px;
@@ -280,6 +334,30 @@
         </nav>
       </header>
 
+      <section class="poster" aria-labelledby="poster-title">
+        <a class="poster-thumb" href="posters/functional-noise-alife.pdf">
+          <img src="posters/functional-noise-alife-preview.jpg"
+               width="900" height="1273" loading="eager"
+               alt="Preview of the poster “The functional role of noise in artificial life”: a diagram of functional noise categories and a map of noise lineages across artificial life, physics, computation and biosemiotics." />
+        </a>
+        <div>
+          <p class="eyebrow">Poster</p>
+          <h2 id="poster-title">The functional role of noise in artificial life</h2>
+          <p><em>Noise, like air, is all around.</em> Noise as
+             <i>yuragi</i> — fluctuation a living system uses rather
+             than error — with a map of the thinkers and lineages
+             behind the idea. The map is incomplete: who is missing?</p>
+          <div class="links">
+            <a class="link-btn" href="posters/functional-noise-alife.pdf">
+              View poster (PDF) <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="link-btn" href="posters/functional-noise-alife.pdf" download>
+              Download <span class="arrow" aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section class="projects">
         <a class="card" href="https://karegeo.github.io/fermi_alife/">
           <span class="arrow" aria-hidden="true">↗</span>
@@ -308,7 +386,7 @@
       </section>
 
       <footer>
-        <p>Last updated: 2026-11-08</p>
+        <p>Last updated: 2026-11-12</p>
         <p>Source on <a href="https://github.com/karegeo">GitHub</a>.
            Built with the help of
            <a href="https://claude.com/claude-code">Claude Code</a>.</p>
